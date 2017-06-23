@@ -29,3 +29,17 @@ The program can be run with `java -classpath selenium-server-standalone-*.jar:. 
 #### Output: 
 `<gene>`-SNPsOfficial.txt a line-delimited list of SNPs which affect the expression of the specified gene
 
+## ReadFromGTEx
+Software to determine which SNPs significantly (p < .05) affect a specified gene as documented by the [GTEx Dataset](https://www.gtexportal.org/home/testyourown). Returns a file containing a command to input into GTEx with the significant SNPs to manually check direction of gene expression. 
+#### Parameters: 
+`<SNP list>` a line-delimited list of SNPs to be analyzed
+`<gene>` the gene to be analyzed
+#### Running: 
+Executables: selenium-server-standalone-\*.jar, chromedriver.exe
+
+The program can be compiled with `javac GTExData` and `javac -classpath selenium-server-standalone-*.jar ReadFromGTEx.java`. 
+
+The program can be run with `java -classpath selenium-server-standalone-*.jar:. -Dwebdriver.chrome.driver=chromedriver.exe ReadFromGTEx <SNP list> <gene>`. 
+#### Output: 
+`<gene>`-GTEx.txt a GTEx command with significant SNPs to check directionality of concordance
+
